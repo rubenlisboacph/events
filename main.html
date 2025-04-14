@@ -1,0 +1,74 @@
+<!-- main.html -->
+<!-- Save this as a separate HTML file for the full site -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .active {
+        font-weight: bold;
+        color: #4f46e5;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- Sticky Menu -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+      <nav class="flex justify-around py-4 text-sm sm:text-base">
+        <a href="#section1" class="menu-link">One</a>
+        <a href="#section2" class="menu-link">Two</a>
+        <a href="#section3" class="menu-link">Three</a>
+        <a href="#section4" class="menu-link">Four</a>
+        <a href="#section5" class="menu-link">Five</a>
+        <a href="#section6" class="menu-link">Six</a>
+        <a href="#section7" class="menu-link">Seven</a>
+        <a href="#section8" class="menu-link">Eight</a>
+        <a href="#section9" class="menu-link">Nine</a>
+        <a href="#section10" class="menu-link">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Sections -->
+    <main class="pt-20">
+      <section id="section1" class="h-screen flex items-center justify-center bg-gray-100">Page 1</section>
+      <section id="section2" class="h-screen flex items-center justify-center bg-gray-200">Page 2</section>
+      <section id="section3" class="h-screen flex items-center justify-center bg-gray-100">Page 3</section>
+      <section id="section4" class="h-screen flex items-center justify-center bg-gray-200">Page 4</section>
+      <section id="section5" class="h-screen flex items-center justify-center bg-gray-100">Page 5</section>
+      <section id="section6" class="h-screen flex items-center justify-center bg-gray-200">Page 6</section>
+      <section id="section7" class="h-screen flex items-center justify-center bg-gray-100">Page 7</section>
+      <section id="section8" class="h-screen flex items-center justify-center bg-gray-200">Page 8</section>
+      <section id="section9" class="h-screen flex items-center justify-center bg-gray-100">Page 9</section>
+      <section id="section10" class="h-screen flex flex-col items-center justify-center bg-gray-200 text-center">
+        <h2 class="text-2xl font-bold mb-4">Contact & About Us</h2>
+        <p class="max-w-md">This is where your contact information and about us content goes.</p>
+      </section>
+    </main>
+
+    <script>
+      // Highlight active menu item on scroll
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".menu-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 60;
+          if (pageYOffset >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
